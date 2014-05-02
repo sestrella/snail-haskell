@@ -1,10 +1,10 @@
+import Data.List.Split
+
 type Matrix = [[Integer]]
 
 createMatrix :: Integer -> Matrix
-createMatrix n = [ createRow (x * n) n | x <-[0..(n - 1)] ]
+createMatrix n = chunksOf (fromIntegral n) [1..n*n] 
 
-createRow :: Integer -> Integer -> [Integer]
-createRow i l = [ x | x <-[(i + 1)..(i + l)] ]
 
 right :: Matrix -> [Integer]
 right = head
